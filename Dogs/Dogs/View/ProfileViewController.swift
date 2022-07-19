@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Dogs
 //
-//  Created by Tatsiana on 7/17/22.
+//  Created by Tatsiana Gouteeva on 18.07.22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
-
