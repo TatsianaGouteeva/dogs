@@ -18,6 +18,7 @@
 		B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */; };
 		B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */; };
 		B39F3C272887193F00A4D768 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C262887193F00A4D768 /* Dog.swift */; };
+		B3B10872288884F800618867 /* DogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B10871288884F800618867 /* DogsListViewController.swift */; };
 		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +36,8 @@
 		B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C262887193F00A4D768 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
-		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailsViewModel.swift; sourceTree = "<group>"; };
+		B3B10871288884F800618867 /* DogsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsListViewController.swift; sourceTree = "<group>"; };
+		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DogDetailsViewModel.swift; path = ViewModel/DogDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		B39F3C202887149300A4D768 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B3B10870288884D200618867 /* List */,
 				B39F3C22288714C700A4D768 /* DogDetails */,
 				95D0B09028848E0D0028E44D /* Main.storyboard */,
 				B30E408528854AB900FD284A /* ProfileViewController.swift */,
@@ -107,6 +110,14 @@
 				B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */,
 			);
 			path = DogDetails;
+			sourceTree = "<group>";
+		};
+		B3B10870288884D200618867 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B3B10871288884F800618867 /* DogsListViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		B3FD844F2887B9E400173F55 /* ViewModel */ = {
@@ -195,6 +206,7 @@
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
 				B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */,
 				95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */,
+				B3B10872288884F800618867 /* DogsListViewController.swift in Sources */,
 				B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
 			);
