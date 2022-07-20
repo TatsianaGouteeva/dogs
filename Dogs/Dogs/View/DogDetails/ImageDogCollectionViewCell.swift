@@ -12,6 +12,6 @@ final class ImageDogCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var dogImageView: UIImageView!
     
     func configure(image: String) {
-        dogImageView.image = UIImage(systemName: image)
+        dogImageView.image = UIImage(named: image)
     }
 }
