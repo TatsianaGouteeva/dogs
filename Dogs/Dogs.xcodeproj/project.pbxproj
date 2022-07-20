@@ -14,12 +14,12 @@
 		95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95D0B09328848E0D0028E44D /* Dogs.xcdatamodeld */; };
 		95D0B09728848E120028E44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D0B09628848E120028E44D /* Assets.xcassets */; };
 		95D0B09A28848E120028E44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D0B09828848E120028E44D /* LaunchScreen.storyboard */; };
-		B30E408428854AA700FD284A /* DogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E408328854AA700FD284A /* DogsListViewController.swift */; };
 		B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E408528854AB900FD284A /* ProfileViewController.swift */; };
 		B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */; };
 		B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */; };
 		B39F3C1F2887098900A4D768 /* DogDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1E2887098900A4D768 /* DogDescription.swift */; };
 		B39F3C272887193F00A4D768 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C262887193F00A4D768 /* Dog.swift */; };
+		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +32,12 @@
 		95D0B09628848E120028E44D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D0B09928848E120028E44D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D0B09B28848E120028E44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B30E408328854AA700FD284A /* DogsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsListViewController.swift; sourceTree = "<group>"; };
 		B30E408528854AB900FD284A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C1E2887098900A4D768 /* DogDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDescription.swift; sourceTree = "<group>"; };
 		B39F3C262887193F00A4D768 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +70,7 @@
 		95D0B08928848E0D0028E44D /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				B3FD844F2887B9E400173F55 /* ViewModel */,
 				B39F3C202887149300A4D768 /* View */,
 				B39F3C192886D1B200A4D768 /* Model */,
 				95D0B08A28848E0D0028E44D /* AppDelegate.swift */,
@@ -96,7 +97,6 @@
 			children = (
 				B39F3C22288714C700A4D768 /* DogDetails */,
 				95D0B09028848E0D0028E44D /* Main.storyboard */,
-				B30E408328854AA700FD284A /* DogsListViewController.swift */,
 				B30E408528854AB900FD284A /* ProfileViewController.swift */,
 			);
 			path = View;
@@ -110,6 +110,14 @@
 				B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */,
 			);
 			path = DogDetails;
+			sourceTree = "<group>";
+		};
+		B3FD844F2887B9E400173F55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,8 +196,8 @@
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
+				B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */,
 				B39F3C1F2887098900A4D768 /* DogDescription.swift in Sources */,
-				B30E408428854AA700FD284A /* DogsListViewController.swift in Sources */,
 				95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */,
 				B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
