@@ -27,6 +27,7 @@ final class DogDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         bind()
+        viewModel.fetchData()
     }
     
     @IBAction func showCollage(_ sender: Any) {
@@ -39,14 +40,16 @@ final class DogDetailsViewController: UIViewController {
 private extension DogDetailsViewController {
     
     func bind() {
-        dataSource.apply(viewModel.snapshot)
+        
+        viewModel.snapshot = { [weak self] snapshot in
+            self?.dataSource.apply(snapshot)
+        }
         
         viewModel.didChangedImagePresentation = { [weak self] imagePresentation in
             guard let self = self else { return }
 
             self.currentSectionType = imagePresentation == .collage ? .list : .collage
             self.sectionTypeSwitcher.title = imagePresentation.sectionTypeSwitcherHeader
-            self.applySnapshot()
         }
     }
 }
@@ -81,23 +84,6 @@ private extension DogDetailsViewController {
           }
       })
       return dataSource
-    }
-
-    func applySnapshot() {
-
-        var snapshot = Snapshot()
-        switch currentSectionType {
-        case .collage:
-            snapshot.appendSections([.collage])
-            snapshot.appendItems([.image("dog1"), .image("dog2"), .image("dog3"), .image("dog4")])
-        case .list:
-            snapshot.appendSections([.imageList])
-            snapshot.appendItems([.image("dog1"), .image("dog2"), .image("dog3"), .image("dog4")])
-        }
-
-        snapshot.appendSections([.description])
-        snapshot.appendItems([.dog(.init(breed: "Akita", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life."))])
-        dataSource.apply(snapshot)
     }
 }
 
