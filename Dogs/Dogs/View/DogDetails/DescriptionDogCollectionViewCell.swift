@@ -9,15 +9,11 @@ import UIKit
 
 final class DescriptionDogCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var breedLabel: UILabel!
-    @IBOutlet private weak var heightLabel: UILabel!
-    @IBOutlet private weak var weightLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var valueLabel: UILabel!
     
-    func configure(model: DogDescription) {
-        breedLabel.text = model.breed
-        heightLabel.text = model.height
-        weightLabel.text = model.weight
-        descriptionLabel.text = model.description
+    func configure(titleLabel: String, valueLabel: String) {
+        self.titleLabel.text = titleLabel
+        self.valueLabel.text = valueLabel
     }
 }

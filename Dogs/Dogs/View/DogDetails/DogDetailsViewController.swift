@@ -67,14 +67,14 @@ private extension DogDetailsViewController {
               
               cell.configure(image: imageName)
               return cell
-          case .dog(let dogDescriptionModel):
+          case .dog(let title, let value):
               let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "DescriptionDogCollectionViewCell",
                 for: indexPath) as? DescriptionDogCollectionViewCell
               
               guard let cell = cell else { return UICollectionViewCell() }
               
-              cell.configure(model: dogDescriptionModel)
+              cell.configure(titleLabel: title, valueLabel: value)
               return cell
           }
       })
