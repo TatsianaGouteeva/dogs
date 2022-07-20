@@ -15,7 +15,7 @@ final class DogDetailsViewModel {
     typealias Snapshot = NSDiffableDataSourceSnapshot<SectionType, Item>
     
     var snapshot: ((Snapshot) -> ())?
-    var didChangedImagePresentation: ((ImagePresentation) -> Void)?
+    var sectionTypeSwitcherHeader: ((String) -> ())?
     
     init(dog: Dog) {
         self.dog = dog
@@ -23,13 +23,14 @@ final class DogDetailsViewModel {
     
     func fetchData() {
         snapshot?(getDogDetails())
+        sectionTypeSwitcherHeader?(imagePresentation.sectionTypeSwitcherHeader)
     }
     
-    func changeImagePresentation(imagePresentation: ImagePresentation) {
-        didChangedImagePresentation?(imagePresentation)
+    func changeImagePresentation() {
         self.imagePresentation = imagePresentation == .collage ? .list : .collage
         
         snapshot?(getDogDetails())
+        sectionTypeSwitcherHeader?(imagePresentation.sectionTypeSwitcherHeader)
     }
     
     private func getDogDetails() -> Snapshot {

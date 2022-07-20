@@ -11,9 +11,8 @@ final class DogDetailsViewController: UIViewController {
 
     private typealias DataSource = UICollectionViewDiffableDataSource<SectionType, Item>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<SectionType, Item>
-    private var currentSectionType: ImagePresentation = .collage
 
-    @IBOutlet weak var sectionTypeSwitcher: UIBarButtonItem!
+    @IBOutlet private weak var sectionTypeSwitcher: UIBarButtonItem!
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.collectionViewLayout = createLayout()
@@ -31,7 +30,7 @@ final class DogDetailsViewController: UIViewController {
     }
     
     @IBAction func showCollage(_ sender: Any) {
-        viewModel.changeImagePresentation(imagePresentation: currentSectionType)
+        viewModel.changeImagePresentation()
     }
 }
 
@@ -40,16 +39,12 @@ final class DogDetailsViewController: UIViewController {
 private extension DogDetailsViewController {
     
     func bind() {
-        
         viewModel.snapshot = { [weak self] snapshot in
             self?.dataSource.apply(snapshot)
         }
         
-        viewModel.didChangedImagePresentation = { [weak self] imagePresentation in
-            guard let self = self else { return }
-
-            self.currentSectionType = imagePresentation == .collage ? .list : .collage
-            self.sectionTypeSwitcher.title = imagePresentation.sectionTypeSwitcherHeader
+        viewModel.sectionTypeSwitcherHeader = { [weak self] sectionTypeSwitcherHeader in
+            self?.sectionTypeSwitcher.title = sectionTypeSwitcherHeader
         }
     }
 }
