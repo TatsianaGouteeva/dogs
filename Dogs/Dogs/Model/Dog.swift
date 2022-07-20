@@ -11,4 +11,11 @@ struct Dog {
     let weight: String
     let description: String
     let images: [String]
+    
+    var dictionary: [String : String] {
+        return ["breed" : breed,
+                "height" : height,
+                "weight" : weight,
+                "description" : description]
+    }
 }
