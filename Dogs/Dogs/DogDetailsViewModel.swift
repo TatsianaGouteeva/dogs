@@ -39,10 +39,11 @@ final class DogDetailsViewModel {
         snapshot.appendItems(dog.images.map { Item.image($0) })
         
         snapshot.appendSections([.description])
-        snapshot.appendItems([.dog(.init(breed: dog.breed,
-                                         height: dog.height,
-                                         weight: dog.weight,
-                                         description: dog.description))], toSection: .description)
+        let descriptionItems = dog.dictionary
+            .filter { !$0.value.isEmpty }
+            .sorted(by: { $0.key < $1.key })
+            .map { Item.dog($0, $1) }
+        snapshot.appendItems(descriptionItems, toSection: .description)
         
         return snapshot
     }

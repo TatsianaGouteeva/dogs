@@ -17,7 +17,6 @@
 		B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E408528854AB900FD284A /* ProfileViewController.swift */; };
 		B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */; };
 		B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */; };
-		B39F3C1F2887098900A4D768 /* DogDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1E2887098900A4D768 /* DogDescription.swift */; };
 		B39F3C272887193F00A4D768 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C262887193F00A4D768 /* Dog.swift */; };
 		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		B30E408528854AB900FD284A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogCollectionViewCell.swift; sourceTree = "<group>"; };
-		B39F3C1E2887098900A4D768 /* DogDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDescription.swift; sourceTree = "<group>"; };
 		B39F3C262887193F00A4D768 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +84,6 @@
 		B39F3C192886D1B200A4D768 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B39F3C1E2887098900A4D768 /* DogDescription.swift */,
 				B39F3C262887193F00A4D768 /* Dog.swift */,
 			);
 			path = Model;
@@ -197,7 +194,6 @@
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
 				B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */,
-				B39F3C1F2887098900A4D768 /* DogDescription.swift in Sources */,
 				95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */,
 				B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,

@@ -166,7 +166,7 @@ enum SectionType: Int, CaseIterable {
     
 enum Item: Hashable {
     case image(String)
-    case dog(DogDescription)
+    case dog(String, String)
 }
 
 enum ImagePresentation {
