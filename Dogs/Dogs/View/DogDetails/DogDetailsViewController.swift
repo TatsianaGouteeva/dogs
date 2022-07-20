@@ -110,19 +110,16 @@ private extension DogDetailsViewController {
 
     func makeSection(for sectionType: SectionType) -> NSCollectionLayoutSection {
 
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 2, leading: 2, bottom: 2, trailing: 2)
+
         switch sectionType {
         case .collage, .description:
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                  heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: 2, leading: 2, bottom: 2, trailing: 2)
             let group = makeGroup(item: item, for: sectionType)
             return NSCollectionLayoutSection(group: group)
         case .imageList:
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                  heightDimension: .fractionalHeight(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
             let group = makeGroup(item: item, for: sectionType)
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 40
@@ -150,7 +147,7 @@ private extension DogDetailsViewController {
         case .collage:
             return NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: sectionType.columnCount)
         case  .imageList:
-            groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.43))
+            groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.44))
             return NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: sectionType.columnCount)
         case .description:
             return NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: sectionType.columnCount)
