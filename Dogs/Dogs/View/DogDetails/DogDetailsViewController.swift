@@ -11,7 +11,7 @@ final class DogDetailsViewController: UIViewController {
 
     private typealias DataSource = UICollectionViewDiffableDataSource<SectionType, Item>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<SectionType, Item>
-    private var currentSectionType: SectionType = .imageList
+    private var currentSectionType: ImagePresentation = .collage
 
     @IBOutlet weak var sectionTypeSwitcher: UIBarButtonItem!
     @IBOutlet private weak var collectionView: UICollectionView! {
@@ -21,22 +21,33 @@ final class DogDetailsViewController: UIViewController {
     }
     
     private lazy var dataSource: DataSource = makeDataSource()
+    private var viewModel: DogDetailsViewModel = DogDetailsViewModel(dog: .init(breed: "Akita", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        applySnapshot()
+        bind()
     }
-
+    
     @IBAction func showCollage(_ sender: Any) {
-        if currentSectionType == .imageList {
-            currentSectionType = .collage
-            sectionTypeSwitcher.title = "Hide collage"
-        } else {
-            currentSectionType = .imageList
-            sectionTypeSwitcher.title = "Collage"
+        viewModel.changeImagePresentation(imagePresentation: currentSectionType)
+    }
+}
+
+// MARK: Binding
+
+private extension DogDetailsViewController {
+    
+    func bind() {
+        dataSource.apply(viewModel.snapshot)
+        
+        viewModel.didChangedImagePresentation = { [weak self] imagePresentation in
+            guard let self = self else { return }
+
+            self.currentSectionType = imagePresentation == .collage ? .list : .collage
+            self.sectionTypeSwitcher.title = imagePresentation.sectionTypeSwitcherHeader
+            self.applySnapshot()
         }
-        applySnapshot()
     }
 }
 
@@ -79,11 +90,9 @@ private extension DogDetailsViewController {
         case .collage:
             snapshot.appendSections([.collage])
             snapshot.appendItems([.image("dog1"), .image("dog2"), .image("dog3"), .image("dog4")])
-        case .imageList:
+        case .list:
             snapshot.appendSections([.imageList])
             snapshot.appendItems([.image("dog1"), .image("dog2"), .image("dog3"), .image("dog4")])
-        case .description:
-             break
         }
 
         snapshot.appendSections([.description])
@@ -157,27 +166,38 @@ private extension DogDetailsViewController {
 
 // MARK: SectionType
 
-private extension DogDetailsViewController {
-    
-    enum SectionType: Int, CaseIterable {
-        case collage
-        case imageList
-        case description
+enum SectionType: Int, CaseIterable {
+    case collage
+    case imageList
+    case description
         
-        var columnCount: Int {
-            switch self {
-            case .collage:
-                return 3
-            case .imageList:
-                return 1
-            case .description:
-                return 1
-            }
+    var columnCount: Int {
+        switch self {
+        case .collage:
+            return 3
+        case .imageList:
+            return 1
+        case .description:
+            return 1
         }
     }
+}
     
-    enum Item: Hashable {
-        case image(String)
-        case dog(DogDescription)
+enum Item: Hashable {
+    case image(String)
+    case dog(DogDescription)
+}
+
+enum ImagePresentation {
+    case collage
+    case list
+    
+    var sectionTypeSwitcherHeader: String {
+        switch self {
+        case .collage:
+            return "Hide collage"
+        case .list:
+            return "Collage"
+        }
     }
 }
