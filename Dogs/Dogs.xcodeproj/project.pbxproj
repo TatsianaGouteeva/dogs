@@ -18,6 +18,10 @@
 		B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */; };
 		B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */; };
 		B39F3C272887193F00A4D768 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F3C262887193F00A4D768 /* Dog.swift */; };
+		B3A266EB2889588C00821FAD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266EA2889588C00821FAD /* Settings.swift */; };
+		B3A266EE288958AA00821FAD /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266ED288958AA00821FAD /* NetworkConfiguration.swift */; };
+		B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266EF288958C300821FAD /* ConfigurationType.swift */; };
+		B3A266F2288958DD00821FAD /* MockNetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */; };
 		B3B10872288884F800618867 /* DogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B10871288884F800618867 /* DogsListViewController.swift */; };
 		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +40,10 @@
 		B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C1C2887084400A4D768 /* DescriptionDogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDogCollectionViewCell.swift; sourceTree = "<group>"; };
 		B39F3C262887193F00A4D768 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		B3A266EA2889588C00821FAD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B3A266ED288958AA00821FAD /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		B3A266EF288958C300821FAD /* ConfigurationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationType.swift; sourceTree = "<group>"; };
+		B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkConfiguration.swift; sourceTree = "<group>"; };
 		B3B10871288884F800618867 /* DogsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsListViewController.swift; sourceTree = "<group>"; };
 		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DogDetailsViewModel.swift; path = ViewModel/DogDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,10 +78,12 @@
 		95D0B08928848E0D0028E44D /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				B3A266EC2889589C00821FAD /* Network */,
 				B3FD844F2887B9E400173F55 /* ViewModel */,
 				B39F3C202887149300A4D768 /* View */,
 				B39F3C192886D1B200A4D768 /* Model */,
 				95D0B08A28848E0D0028E44D /* AppDelegate.swift */,
+				B3A266EA2889588C00821FAD /* Settings.swift */,
 				95D0B08C28848E0D0028E44D /* SceneDelegate.swift */,
 				95D0B09628848E120028E44D /* Assets.xcassets */,
 				95D0B09828848E120028E44D /* LaunchScreen.storyboard */,
@@ -110,6 +120,16 @@
 				B39F3C1A2886D3C000A4D768 /* ImageDogCollectionViewCell.swift */,
 			);
 			path = DogDetails;
+			sourceTree = "<group>";
+		};
+		B3A266EC2889589C00821FAD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B3A266ED288958AA00821FAD /* NetworkConfiguration.swift */,
+				B3A266EF288958C300821FAD /* ConfigurationType.swift */,
+				B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B3B10870288884D200618867 /* List */ = {
@@ -201,6 +221,7 @@
 			files = (
 				B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */,
 				95D0B08F28848E0D0028E44D /* DogDetailsViewController.swift in Sources */,
+				B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */,
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
@@ -208,7 +229,10 @@
 				95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */,
 				B3B10872288884F800618867 /* DogsListViewController.swift in Sources */,
 				B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */,
+				B3A266EB2889588C00821FAD /* Settings.swift in Sources */,
+				B3A266F2288958DD00821FAD /* MockNetworkConfiguration.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
+				B3A266EE288958AA00821FAD /* NetworkConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
