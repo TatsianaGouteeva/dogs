@@ -9,6 +9,8 @@ import UIKit
 
 final class DogsListTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "DogListTableViewCell"
+
     @IBOutlet private weak var dogImageView: UIImageView!
     @IBOutlet weak var breedLabel: UILabel!
 }

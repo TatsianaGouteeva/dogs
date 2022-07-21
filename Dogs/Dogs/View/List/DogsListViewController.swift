@@ -9,8 +9,6 @@ import UIKit
 
 final class DogsListViewController: UIViewController {
 
-    static let reuseIdentifier = "DogListTableViewCell"
-
     private typealias DataSource = UITableViewDiffableDataSource<ListSection, ListItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>
     private lazy var dataSource: DataSource = makeDataSource()
@@ -52,7 +50,7 @@ private extension DogsListViewController {
 extension DogsListViewController {
 
     fileprivate func setupTableView(){
-        tableView.register(UINib(nibName: "DogsListTableViewCell", bundle: nil), forCellReuseIdentifier: DogsListViewController.reuseIdentifier)
+        tableView.register(UINib(nibName: "DogsListTableViewCell", bundle: nil), forCellReuseIdentifier: DogsListTableViewCell.reuseIdentifier)
     }
 }
 
@@ -66,7 +64,7 @@ private extension DogsListViewController {
             (tableView: UITableView, indexPath: IndexPath, item: ListItem) -> UITableViewCell? in
 
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: DogsListViewController.reuseIdentifier,
+                withIdentifier: DogsListTableViewCell.reuseIdentifier,
                 for: indexPath) as! DogsListTableViewCell
             cell.breedLabel.text = item.breed
             return cell
