@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W4p-Ql-86J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xKU-JP-D9E">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,7 +13,7 @@
         <!--Dog Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DogDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DogDetailsViewController" id="BYZ-38-t0r" customClass="DogDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bL2-5d-06c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.0000000000002" y="262.5"/>
+            <point key="canvasLocation" x="2710.144927536232" y="262.5"/>
         </scene>
         <!--DogsListViewController-->
         <scene sceneID="KVH-S9-0KG">
@@ -141,38 +141,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ1-jE-WV6" userLabel="addDogView">
-                                <rect key="frame" x="10" y="753" width="394" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K26-Z4-xFi" userLabel="addDogButton">
-                                        <rect key="frame" x="172" y="1" width="50" height="48"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
-                                </subviews>
-                                <viewLayoutGuide key="safeArea" id="QJ8-PB-Oys"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-F6-S9x">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="K26-Z4-xFi" firstAttribute="centerY" secondItem="cJ1-jE-WV6" secondAttribute="centerY" id="JpJ-Ro-nhC"/>
-                                    <constraint firstItem="K26-Z4-xFi" firstAttribute="width" secondItem="cJ1-jE-WV6" secondAttribute="height" multiplier="1:1" id="LId-3G-X42"/>
-                                    <constraint firstItem="K26-Z4-xFi" firstAttribute="centerX" secondItem="cJ1-jE-WV6" secondAttribute="centerX" id="TAg-x2-PAs"/>
-                                    <constraint firstAttribute="height" constant="50" id="Vow-yt-ZTC"/>
-                                </constraints>
-                            </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="p5T-e1-9ZP" id="dEp-do-cvI"/>
+                                    <outlet property="delegate" destination="p5T-e1-9ZP" id="cap-ef-TBe"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wfi-5y-6Ut"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wfi-5y-6Ut" firstAttribute="trailing" secondItem="cJ1-jE-WV6" secondAttribute="trailing" constant="10" id="eBq-s5-dFC"/>
-                            <constraint firstItem="cJ1-jE-WV6" firstAttribute="leading" secondItem="Wfi-5y-6Ut" secondAttribute="leading" constant="10" id="qtb-z9-skQ"/>
-                            <constraint firstItem="Wfi-5y-6Ut" firstAttribute="bottom" secondItem="cJ1-jE-WV6" secondAttribute="bottom" constant="10" id="z6Y-ZR-x0M"/>
+                            <constraint firstItem="SwV-F6-S9x" firstAttribute="bottom" secondItem="Wfi-5y-6Ut" secondAttribute="bottom" id="1ha-EX-6wg"/>
+                            <constraint firstItem="Wfi-5y-6Ut" firstAttribute="trailing" secondItem="SwV-F6-S9x" secondAttribute="trailing" id="ReR-6k-483"/>
+                            <constraint firstItem="SwV-F6-S9x" firstAttribute="leading" secondItem="Wfi-5y-6Ut" secondAttribute="leading" id="ilM-fm-aXE"/>
+                            <constraint firstItem="SwV-F6-S9x" firstAttribute="top" secondItem="Wfi-5y-6Ut" secondAttribute="top" id="zGJ-0C-nVF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rlY-NB-YQw"/>
+                    <navigationItem key="navigationItem" id="Rq6-A8-NUZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="SwV-F6-S9x" id="xbi-dW-Afg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kc-xA-VCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="-342"/>
+            <point key="canvasLocation" x="1800.0000000000002" y="-342.1875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nGh-Pz-tfw">
@@ -184,7 +178,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="p5T-e1-9ZP" kind="relationship" relationship="viewControllers" id="ir7-rn-a1o"/>
+                        <segue destination="Dop-tm-PhT" kind="relationship" relationship="viewControllers" id="ir7-rn-a1o"/>
                         <segue destination="P7D-KK-qsa" kind="relationship" relationship="viewControllers" id="AYI-Wg-ELC"/>
                     </connections>
                 </tabBarController>
@@ -209,6 +203,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHE-L3-vyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230.43478260869566" y="791.51785714285711"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="MQP-TS-vOE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dop-tm-PhT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" id="rlY-NB-YQw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YwF-Se-xY4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p5T-e1-9ZP" kind="relationship" relationship="rootViewController" id="iip-A0-HGO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M40-7o-Ums" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889.85507246376824" y="-342.1875"/>
         </scene>
     </scenes>
     <resources>

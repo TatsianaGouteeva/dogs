@@ -24,6 +24,9 @@
 		B3A266F2288958DD00821FAD /* MockNetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */; };
 		B3B10872288884F800618867 /* DogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B10871288884F800618867 /* DogsListViewController.swift */; };
 		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
+		BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */; };
+		BE2F69E228897F0200580B5F /* DogsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE2F69E028897F0200580B5F /* DogsListTableViewCell.xib */; };
+		BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED94A4528897439008EB7A4 /* DogListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkConfiguration.swift; sourceTree = "<group>"; };
 		B3B10871288884F800618867 /* DogsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsListViewController.swift; sourceTree = "<group>"; };
 		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DogDetailsViewModel.swift; path = ViewModel/DogDetailsViewModel.swift; sourceTree = "<group>"; };
+		BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsListTableViewCell.swift; sourceTree = "<group>"; };
+		BE2F69E028897F0200580B5F /* DogsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogsListTableViewCell.xib; sourceTree = "<group>"; };
+		BED94A4528897439008EB7A4 /* DogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 		B3B10870288884D200618867 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				BED94A4F288977B7008EB7A4 /* Cell */,
 				B3B10871288884F800618867 /* DogsListViewController.swift */,
 			);
 			path = List;
@@ -144,8 +151,18 @@
 			isa = PBXGroup;
 			children = (
 				B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */,
+				BED94A4528897439008EB7A4 /* DogListViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		BED94A4F288977B7008EB7A4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */,
+				BE2F69E028897F0200580B5F /* DogsListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +225,7 @@
 			files = (
 				95D0B09A28848E120028E44D /* LaunchScreen.storyboard in Resources */,
 				95D0B09728848E120028E44D /* Assets.xcassets in Resources */,
+				BE2F69E228897F0200580B5F /* DogsListTableViewCell.xib in Resources */,
 				95D0B09228848E0D0028E44D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,10 +239,12 @@
 			files = (
 				B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */,
 				95D0B08F28848E0D0028E44D /* DogDetailsViewController.swift in Sources */,
+				BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */,
 				B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */,
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
+				BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */,
 				B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */,
 				95D0B09528848E0D0028E44D /* Dogs.xcdatamodeld in Sources */,
 				B3B10872288884F800618867 /* DogsListViewController.swift in Sources */,
