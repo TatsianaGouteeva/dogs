@@ -13,7 +13,7 @@
         <!--Dog Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="DogDetailsViewController" id="BYZ-38-t0r" customClass="DogDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DogDetailsViewController" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="DogDetailsViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bL2-5d-06c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710.144927536232" y="262.5"/>
+            <point key="canvasLocation" x="3620.289855072464" y="262.5"/>
         </scene>
         <!--DogsListViewController-->
         <scene sceneID="KVH-S9-0KG">
@@ -141,9 +141,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-F6-S9x">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-F6-S9x">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DogsListTableViewCellIdentifier" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DogsListTableViewCellIdentifier" rowHeight="136" id="PXn-do-Jey" customClass="DogsListTableViewCell" customModule="Dogs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="136"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PXn-do-Jey" id="lYw-gd-qxi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-OI-9re">
+                                                    <rect key="frame" x="20" y="33" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="TxF-OI-9re" secondAttribute="height" multiplier="1:1" id="93v-eN-haL"/>
+                                                        <constraint firstAttribute="width" constant="70" id="EuX-fB-iu7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43X-yr-TC3">
+                                                    <rect key="frame" x="105" y="33" width="41.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TxF-OI-9re" firstAttribute="centerY" secondItem="lYw-gd-qxi" secondAttribute="centerY" id="5yk-Tn-BsH"/>
+                                                <constraint firstItem="TxF-OI-9re" firstAttribute="leading" secondItem="lYw-gd-qxi" secondAttribute="leading" constant="20" symbolic="YES" id="FLS-5c-YHA"/>
+                                                <constraint firstItem="43X-yr-TC3" firstAttribute="top" secondItem="TxF-OI-9re" secondAttribute="top" id="Ffd-WF-0hc"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="43X-yr-TC3" secondAttribute="trailing" constant="20" symbolic="YES" id="fNQ-Fj-orq"/>
+                                                <constraint firstItem="43X-yr-TC3" firstAttribute="leading" secondItem="TxF-OI-9re" secondAttribute="trailing" constant="15" id="pb9-O5-uT2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="breedLabel" destination="43X-yr-TC3" id="YZI-of-Poq"/>
+                                            <outlet property="dogImageView" destination="TxF-OI-9re" id="Bez-2k-thL"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="toDetails" id="QyZ-3g-jyG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="p5T-e1-9ZP" id="dEp-do-cvI"/>
                                     <outlet property="delegate" destination="p5T-e1-9ZP" id="cap-ef-TBe"/>
@@ -160,26 +197,27 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rq6-A8-NUZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="SwV-F6-S9x" id="xbi-dW-Afg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kc-xA-VCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.0000000000002" y="-342.1875"/>
+            <point key="canvasLocation" x="2710.144927536232" y="-342.1875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nGh-Pz-tfw">
             <objects>
-                <tabBarController id="xKU-JP-D9E" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="xKU-JP-D9E" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RTT-59-aDm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Dop-tm-PhT" kind="relationship" relationship="viewControllers" id="ir7-rn-a1o"/>
-                        <segue destination="P7D-KK-qsa" kind="relationship" relationship="viewControllers" id="AYI-Wg-ELC"/>
+                        <segue destination="Jls-FY-flv" kind="relationship" relationship="viewControllers" id="cr0-ju-xR4"/>
+                        <segue destination="P7D-KK-qsa" kind="relationship" relationship="viewControllers" id="CJn-Bm-O83"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Oj-hI-pWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,26 +243,30 @@
             <point key="canvasLocation" x="-230.43478260869566" y="791.51785714285711"/>
         </scene>
         <!--Item 1-->
-        <scene sceneID="MQP-TS-vOE">
+        <scene sceneID="Sgd-3T-L3E">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dop-tm-PhT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rlY-NB-YQw"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jls-FY-flv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" id="UIJ-wy-9ID"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YwF-Se-xY4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RLg-SC-iqc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="p5T-e1-9ZP" kind="relationship" relationship="rootViewController" id="iip-A0-HGO"/>
+                        <segue destination="p5T-e1-9ZP" kind="relationship" relationship="rootViewController" id="7pC-jp-M3V"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M40-7o-Ums" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgX-sl-odP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889.85507246376824" y="-342.1875"/>
+            <point key="canvasLocation" x="1800.0000000000002" y="-342.1875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QyZ-3g-jyG"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="dog" width="640" height="427"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

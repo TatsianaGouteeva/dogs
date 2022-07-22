@@ -19,9 +19,16 @@ final class DogsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupTableView()
         setupViewModel()
         viewModel.applyData()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            if let viewController = segue.destination as? DogDetailsViewController {
+                viewController.viewModel = DogDetailsViewModel(dog: viewModel.dogs[0])
+            }
+        }
     }
 }
 
@@ -29,28 +36,11 @@ final class DogsListViewController: UIViewController {
 
 private extension DogsListViewController {
 
-    func setupViewModel() {
+    private func setupViewModel() {
         viewModel.snapshot = { [weak self] snapshot in
             self?.dataSource.apply(snapshot)
         }
 
-        viewModel.didSelectDog = { [weak self] dog in
-            self?.showDetailDogInfo(for: dog)
-        }
-    }
-
-    func showDetailDogInfo(for dog: Dog) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destVC = storyboard.instantiateViewController(withIdentifier: "DogDetailsViewController") as! DogDetailsViewController
-        destVC.viewModel = DogDetailsViewModel(dog: dog)
-        navigationController?.pushViewController(destVC, animated: true)
-    }
-}
-
-extension DogsListViewController {
-
-    fileprivate func setupTableView(){
-        tableView.register(UINib(nibName: "DogsListTableViewCell", bundle: nil), forCellReuseIdentifier: DogsListTableViewCell.reuseIdentifier)
     }
 }
 

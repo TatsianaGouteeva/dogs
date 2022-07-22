@@ -27,7 +27,6 @@ final class DogDetailsViewController: UIViewController {
         
         bind()
         viewModel.fetchData()
-        tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func showCollage(_ sender: Any) {
