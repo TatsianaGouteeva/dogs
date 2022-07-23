@@ -7,15 +7,22 @@
 
 struct Dog {
     let breed: String
-    let height: String
-    let weight: String
-    let description: String
-    let images: [String]
+    let height: Double?
+    let weight: Double?
+    let description: String?
+    let images: [String]?
     
     var dictionary: [String : String] {
         return ["breed" : breed,
-                "height" : height,
-                "weight" : weight,
-                "description" : description]
+                "height" : height?.orEmptyString ?? "",
+                "weight" : weight?.orEmptyString ?? "",
+                "description" : description ?? ""]
+    }
+}
+
+extension Double {
+    
+    var orEmptyString: String {
+        String(self)
     }
 }
