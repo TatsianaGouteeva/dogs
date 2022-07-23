@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95997A0A288BCF6800F1B462 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95997A09288BCF6800F1B462 /* DatabaseService.swift */; };
 		95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0B08A28848E0D0028E44D /* AppDelegate.swift */; };
 		95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0B08C28848E0D0028E44D /* SceneDelegate.swift */; };
 		95D0B08F28848E0D0028E44D /* DogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0B08E28848E0D0028E44D /* DogDetailsViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95997A09288BCF6800F1B462 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		95D0B08728848E0D0028E44D /* Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D0B08A28848E0D0028E44D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D0B08C28848E0D0028E44D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95997A08288BCF3400F1B462 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				95997A09288BCF6800F1B462 /* DatabaseService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		95D0B07E28848E0D0028E44D = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 		95D0B08928848E0D0028E44D /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				95997A08288BCF3400F1B462 /* Service */,
 				B3A266EC2889589C00821FAD /* Network */,
 				B3FD844F2887B9E400173F55 /* ViewModel */,
 				B39F3C202887149300A4D768 /* View */,
@@ -233,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95997A0A288BCF6800F1B462 /* DatabaseService.swift in Sources */,
 				B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */,
 				95D0B08F28848E0D0028E44D /* DogDetailsViewController.swift in Sources */,
 				BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */,
