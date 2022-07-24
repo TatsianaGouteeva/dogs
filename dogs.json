@@ -2,53 +2,29 @@
 {
   "breed": "Akita",
   "description": "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.",
-  "height": {
-    "value": 25,
-    "unit": "inches"
-  },
-  "weight": {
-    "value": 80,
-    "unit": "pounds"
-  },
+  "height": 25,
+  "weight": 80,
   "images": []
 },
 {
   "breed": "Bichon Frise",
   "description": "The small but sturdy and resilient Bichon Frise stands among the world's great 'personality dogs.' Since antiquity, these irresistible canine comedians have relied on charm, beauty, and intelligence to weather history's ups and downs. A good-size Bichon will stand a shade under a foot tall at the shoulder. ",
-  "height": {
-    "value": 10,
-    "unit": "inches"
-  },
-  "weight": {
-    "value": 14,
-    "unit": "pounds"
-  },
+  "height": 10,
+  "weight": 14,
   "images": []
 },
 {
   "breed": "Cavalier King Charles Spaniel",
   "description": "The Cavalier King Charles Spaniel wears his connection to British history in his breed's name. Cavaliers are the best of two worlds, combining the gentle attentiveness of a toy breed with the verve and athleticism of a sporting spaniel. The Cavalier's all-around beauty, regal grace, and even temper mark him as one of dogdom's noblemen. ",
-  "height": {
-    "value": 11,
-    "unit": "inches"
-  },
-  "weight": {
-    "value": 15,
-    "unit": "pounds"
-  },
+  "height": 11,
+  "weight": 15,
   "images": []
 },
 {
   "breed": "French Bulldog",
   "description": "The one-of-a-kind French Bulldog, with his large bat ears and even disposition, is one of the world's most popular small-dog breeds, especially among city dwellers. The Frenchie is playful, alert, adaptable, and completely irresistible. The French Bulldog resembles a Bulldog in miniature, except for the large, erect 'bat ears' that are the breed's trademark feature. T",
-  "height": {
-    "value": 10,
-    "unit": "inches"
-  },
-  "weight": {
-    "value": 28,
-    "unit": "pounds"
-  },
+  "height": 10,
+  "weight": 28,
   "images": []
 }
 ]
