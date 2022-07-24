@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qSh-jT-hYQ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="qSh-jT-hYQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
                                             </subviews>
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679.71014492753625" y="791.51785714285711"/>
+            <point key="canvasLocation" x="1471" y="565"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="lGk-5m-pUd">
@@ -124,6 +124,17 @@
                     <view key="view" contentMode="scaleToFill" id="agK-T2-wn6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-VV-VH2">
+                                <rect key="frame" x="42" y="129" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="switchDataBase:" destination="P7D-KK-qsa" eventType="touchUpInside" id="2XS-6n-ALB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HNs-IZ-jFM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -131,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bL2-5d-06c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3620.289855072464" y="262.5"/>
+            <point key="canvasLocation" x="2639" y="360"/>
         </scene>
         <!--DogsListViewController-->
         <scene sceneID="KVH-S9-0KG">
@@ -196,15 +207,59 @@
                             <constraint firstItem="SwV-F6-S9x" firstAttribute="top" secondItem="Wfi-5y-6Ut" secondAttribute="top" id="zGJ-0C-nVF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Rq6-A8-NUZ"/>
+                    <navigationItem key="navigationItem" id="Rq6-A8-NUZ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="UxI-ww-D1F">
+                            <connections>
+                                <action selector="changeDatabaseService:" destination="p5T-e1-9ZP" id="pGZ-6o-2UF"/>
+                                <segue destination="21u-9R-NpN" kind="show" id="906-x2-vU3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="createDog" destination="UxI-ww-D1F" id="rqA-N3-yq7"/>
                         <outlet property="tableView" destination="SwV-F6-S9x" id="xbi-dW-Afg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kc-xA-VCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2710.144927536232" y="-342.1875"/>
+        </scene>
+        <!--Add Dog View Controller-->
+        <scene sceneID="EMW-ra-0Kp">
+            <objects>
+                <viewController id="21u-9R-NpN" customClass="AddDogViewController" customModule="Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ac-1t-Z6T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0Y-11-spR">
+                                <rect key="frame" x="20" y="120" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1Ii-oP-fbB"/>
+                                    <constraint firstAttribute="width" constant="67" id="s8q-YR-yWt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rY3-Cf-RTk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L0Y-11-spR" firstAttribute="leading" secondItem="rY3-Cf-RTk" secondAttribute="leading" constant="20" id="HtH-CQ-kQl"/>
+                            <constraint firstItem="L0Y-11-spR" firstAttribute="top" secondItem="rY3-Cf-RTk" secondAttribute="top" constant="32" id="LaD-wB-OeZ"/>
+                            <constraint firstItem="rY3-Cf-RTk" firstAttribute="bottom" secondItem="L0Y-11-spR" secondAttribute="bottom" constant="662" id="oxV-Df-LO1"/>
+                            <constraint firstItem="rY3-Cf-RTk" firstAttribute="trailing" secondItem="L0Y-11-spR" secondAttribute="trailing" constant="327" id="v8w-82-Dp7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4bw-cK-Mgv"/>
+                    <connections>
+                        <outlet property="save" destination="L0Y-11-spR" id="ZB3-3f-igr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZY-iT-Ja4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3432" y="-342"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nGh-Pz-tfw">

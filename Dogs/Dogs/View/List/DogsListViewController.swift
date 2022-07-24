@@ -15,11 +15,19 @@ final class DogsListViewController: UIViewController {
     private var viewModel: DogsListViewModel = DogsListViewModel()
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var createDog: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViewModel()
+       // viewModel.applyData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.updateData()
         viewModel.applyData()
     }
 
@@ -29,6 +37,10 @@ final class DogsListViewController: UIViewController {
                 viewController.viewModel = DogDetailsViewModel(dog: viewModel.dogs[0])
             }
         }
+    }
+
+    @IBAction func changeDatabaseService(_ sender: Any) {
+        Settings.shared.activeDatabaseConfiguration = .firebase
     }
 }
 
@@ -40,7 +52,6 @@ private extension DogsListViewController {
         viewModel.snapshot = { [weak self] snapshot in
             self?.dataSource.apply(snapshot)
         }
-
     }
 }
 
