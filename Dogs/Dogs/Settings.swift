@@ -11,17 +11,20 @@ final class Settings {
 
     private(set) var activeNetworkConfiguration: NetworkConfiguration
     private(set) var activeConcurrencyConfiguration: ConcurrencyConfigurationType
+    var activeDatabaseConfiguration: DatabaseConfigurationType
     
     private(set) static var shared = Settings()
 
     private enum Keys {
         static let activeNetworkConfiguration = "ActiveNetworkConfiguration"
         static let activeConcurrencyConfiguration = "ActiveConcurrencyConfiguration"
+        static let activeDatabaseConfiguration = "ActiveDatabaseConfiguration"
     }
 
     private init() {
         activeNetworkConfiguration = MockNetworkConfiguration()
         activeConcurrencyConfiguration = ConcurrencyConfigurationType.gcd
+        activeDatabaseConfiguration = DatabaseConfigurationType.coredata
         
         if let configuration = UserDefaults.standard.string(forKey:
             Keys.activeNetworkConfiguration),
@@ -39,6 +42,15 @@ final class Settings {
         } else {
             UserDefaults.standard.set(ConcurrencyConfigurationType.gcd.rawValue,
                                       forKey: Keys.activeConcurrencyConfiguration)
+        }
+
+        if let configuration = UserDefaults.standard.string(forKey:
+                                                                Keys.activeDatabaseConfiguration),
+           let configurationType = DatabaseConfigurationType(rawValue: configuration) {
+            activeDatabaseConfiguration = configurationType
+        } else {
+            UserDefaults.standard.set(DatabaseConfigurationType.coredata.rawValue,
+                                      forKey: Keys.activeDatabaseConfiguration)
         }
     }
     

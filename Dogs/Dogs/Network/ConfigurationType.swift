@@ -15,3 +15,8 @@ enum ConcurrencyConfigurationType: String {
     case asyncAwait
 }
 
+enum DatabaseConfigurationType: String {
+    case coredata
+    case firebase
+    case realm
+}

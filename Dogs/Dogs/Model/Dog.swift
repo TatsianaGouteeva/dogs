@@ -5,7 +5,7 @@
 //  Created by Tatsiana Gouteeva on 19.07.22.
 //
 
-struct Dog {
+struct Dog: Decodable {
     let breed: String
     let height: Double?
     let weight: Double?
