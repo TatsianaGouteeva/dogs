@@ -31,11 +31,11 @@ final class DogsListViewModel {
         //                            for elt in data {
         //                                list.append(DogDetailsViewModel(id: elt.description, name: elt.breed))
         //                            }
-        dogs = [Dog(breed: "Akita", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]),
-                Dog(breed: "Akita1", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]),
-                Dog(breed: "Akita2", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"])]
+        dogs = [Dog(breed: "Akita", height: 28, weight: 80, description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]),
+                Dog(breed: "Akita1", height: 28, weight: 80, description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]),
+                Dog(breed: "Akita2", height: 28, weight: 80, description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"])]
         list = dogs.map { dog in
-            ListItem(imageName: dog.images[0], breed: dog.breed)
+            ListItem(imageName: dog.images?[0] ?? "", breed: dog.breed)
         }
         //   }
         // }

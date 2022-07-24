@@ -20,7 +20,7 @@ final class DogDetailsViewController: UIViewController {
     }
     
     private lazy var dataSource: DataSource = makeDataSource()
-    var viewModel: DogDetailsViewModel = DogDetailsViewModel(dog: .init(breed: "Akita", height: "28 inches", weight: "80 pounds", description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]))
+    var viewModel: DogDetailsViewModel = DogDetailsViewModel(dog: .init(breed: "Akita", height: 28, weight: 80, description: "Akita is muscular, double-coated dogs of ancient Japanese lineage famous for her dignity, courage, and loyalty. In her native land, she's venerated as family protectors and symbols of good health, happiness, and long life.", images: ["foto1", "foto2", "foto3", "foto4"]))
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -36,7 +36,7 @@ final class DogDetailsViewModel {
     private func getDogDetails() -> Snapshot {
         var snapshot = Snapshot()
         snapshot.appendSections([(imagePresentation == .collage ? .collage : .imageList)])
-        snapshot.appendItems(dog.images.map { Item.image($0) })
+        //snapshot.appendItems(dog.images.map { Item.image($0) })
         
         snapshot.appendSections([.description])
         let descriptionItems = dog.dictionary
