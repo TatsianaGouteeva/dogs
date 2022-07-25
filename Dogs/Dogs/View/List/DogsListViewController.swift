@@ -40,7 +40,7 @@ final class DogsListViewController: UIViewController {
     }
 
     @IBAction func changeDatabaseService(_ sender: Any) {
-        Settings.shared.activeDatabaseConfiguration = .firebase
+        Settings.shared.activateDatabaseConfiguration(of: .firebase)
     }
 }
 

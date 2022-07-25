@@ -17,6 +17,6 @@ final class ProfileViewController: UIViewController {
     }
 
     @IBAction func switchDataBase(_ sender: Any) {
-        settings.activeDatabaseConfiguration = .firebase
+        settings.activateDatabaseConfiguration(of: .firebase)
     }
 }

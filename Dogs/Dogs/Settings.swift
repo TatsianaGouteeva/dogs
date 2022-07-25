@@ -11,7 +11,7 @@ final class Settings {
 
     private(set) var activeNetworkConfiguration: NetworkConfiguration
     private(set) var activeConcurrencyConfiguration: ConcurrencyConfigurationType
-    var activeDatabaseConfiguration: DatabaseConfigurationType
+    private(set) var activeDatabaseConfiguration: DatabaseServiceProtocol
     
     private(set) static var shared = Settings()
 
@@ -24,7 +24,7 @@ final class Settings {
     private init() {
         activeNetworkConfiguration = MockNetworkConfiguration()
         activeConcurrencyConfiguration = ConcurrencyConfigurationType.gcd
-        activeDatabaseConfiguration = DatabaseConfigurationType.coredata
+        activeDatabaseConfiguration = CoreDataStack(modelName: "Dogs")
         
         if let configuration = UserDefaults.standard.string(forKey:
             Keys.activeNetworkConfiguration),
@@ -47,17 +47,37 @@ final class Settings {
         if let configuration = UserDefaults.standard.string(forKey:
                                                                 Keys.activeDatabaseConfiguration),
            let configurationType = DatabaseConfigurationType(rawValue: configuration) {
-            activeDatabaseConfiguration = configurationType
+            activeDatabaseConfiguration = databaseConfiguration(of: configurationType)
         } else {
             UserDefaults.standard.set(DatabaseConfigurationType.coredata.rawValue,
                                       forKey: Keys.activeDatabaseConfiguration)
         }
     }
     
-    private func networkConfiguration(of type: NetworkConfigurationType) -> NetworkConfiguration {
+    func activateDatabaseConfiguration(of type: DatabaseConfigurationType) {
+        UserDefaults.standard.set(type.rawValue,
+                                  forKey: Keys.activeDatabaseConfiguration)
+        activeDatabaseConfiguration = databaseConfiguration(of: type)
+    }
+}
+
+private extension Settings {
+    
+    func networkConfiguration(of type: NetworkConfigurationType) -> NetworkConfiguration {
         switch type {
         case .mock:
             return MockNetworkConfiguration()
+        }
+    }
+    
+    func databaseConfiguration(of type: DatabaseConfigurationType) -> DatabaseServiceProtocol {
+        switch type {
+        case .coredata:
+            return CoreDataStack(modelName: "Dogs")
+        case .realm:
+            return RealmDataManager()
+        case .firebase:
+            return RealmDataManager()
         }
     }
 }
