@@ -19,15 +19,11 @@ protocol DatabaseServiceProtocol {
 final class DatabaseService {
 
     private let service: DatabaseServiceProtocol = Settings.shared.activeDatabaseConfiguration
-
-    var isEmpty: Bool {
-        service.isEmpty
-    }
-    
+ 
     func fetchData() -> [Dog] {
-        isEmpty ? service.fetchDataFromJSON() : service.fetchData()
+        service.fetchData()
     }
-
+        
     func saveData(dog: Dog) {
         service.saveData(dog: dog)
     }
