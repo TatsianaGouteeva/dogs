@@ -183,6 +183,31 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		B3D3A452288ED9D700A08FB3 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B3D3A44A288E675600A08FB3 /* RealmDataManager.swift */,
+				B3D3A44C288ECD3000A08FB3 /* DogObject.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		B3D3A453288ED9EC00A08FB3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B3D3A44E288ED55800A08FB3 /* JSONDataManager.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		B3D3A455288EDA0300A08FB3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B3D3A450288ED8C000A08FB3 /* Optional.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B3FD844F2887B9E400173F55 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
