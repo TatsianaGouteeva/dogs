@@ -55,14 +55,7 @@ class CoreDataStack: DatabaseServiceProtocol {
     }
 
     func fetchData() -> [Dog] {
-
-        var dogs: [Dog] = []
-        if isEmpty {
-            dogs = fetchDataFromJSON(from: "dogs")
-        } else {
-            dogs = fetchDataFromBase()
-        }
-        return dogs
+        JSONDataManager.fetchDataFromJSON()
     }
 
     func saveData(dog: Dog) {
@@ -79,7 +72,7 @@ class CoreDataStack: DatabaseServiceProtocol {
         }
     }
 
-    func fetchDataFromJSON(from file: String) -> [Dog] {
+    func fetchDataFromJSON() -> [Dog] {
 
         var dogs: [Dog] = []
         do {
