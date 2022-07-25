@@ -57,7 +57,7 @@ private extension DogsListViewController {
 
 private extension DogsListViewController {
 
-    func makeDataSource() -> DataSource {
+    private func makeDataSource() -> DataSource {
         let dataSource = UITableViewDiffableDataSource<ListSection, ListItem>(tableView: tableView) {
             (tableView: UITableView, indexPath: IndexPath, item: ListItem) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(

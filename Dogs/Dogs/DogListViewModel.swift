@@ -12,7 +12,7 @@ final class DogsListViewModel {
     typealias Snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>
     
     private let databaseService = DatabaseService()
-    private var dogs: [Dog] = [Dog]()
+    var dogs: [Dog] = [Dog]()
     
     var didSelectDog: ((Dog) -> Void)?
     var snapshot: ((Snapshot) -> ())?
@@ -34,7 +34,7 @@ final class DogsListViewModel {
     }
 
     private func fillDogsList() -> Snapshot {
-        let list = dogs.map { ListItem(imageName: $0.images?.first.orEmpty, breed: $0.breed) }
+        let list = dogs.map { ListItem(imageName: ($0.images?.first).orEmpty, breed: $0.breed) }
         
         var snapshot = Snapshot()
         snapshot.appendSections([.list])

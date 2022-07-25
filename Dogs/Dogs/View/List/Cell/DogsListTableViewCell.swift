@@ -15,6 +15,6 @@ final class DogsListTableViewCell: UITableViewCell {
     @IBOutlet private weak var breedLabel: UILabel!
     
     func configure(with model: ListItem) {
-        breedLabel = model.breed
+        breedLabel.text = model.breed
     }
 }
