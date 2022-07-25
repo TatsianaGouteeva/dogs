@@ -24,6 +24,10 @@
 		B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266EF288958C300821FAD /* ConfigurationType.swift */; };
 		B3A266F2288958DD00821FAD /* MockNetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */; };
 		B3B10872288884F800618867 /* DogsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B10871288884F800618867 /* DogsListViewController.swift */; };
+		B3D3A44B288E675600A08FB3 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3A44A288E675600A08FB3 /* RealmDataManager.swift */; };
+		B3D3A44D288ECD3000A08FB3 /* DogObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3A44C288ECD3000A08FB3 /* DogObject.swift */; };
+		B3D3A44F288ED55800A08FB3 /* JSONDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3A44E288ED55800A08FB3 /* JSONDataManager.swift */; };
+		B3D3A451288ED8C000A08FB3 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D3A450288ED8C000A08FB3 /* Optional.swift */; };
 		B3FD84512887B9FF00173F55 /* DogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */; };
 		BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */; };
 		BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED94A4528897439008EB7A4 /* DogListViewModel.swift */; };
@@ -55,6 +59,10 @@
 		B3A266EF288958C300821FAD /* ConfigurationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationType.swift; sourceTree = "<group>"; };
 		B3A266F1288958DD00821FAD /* MockNetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkConfiguration.swift; sourceTree = "<group>"; };
 		B3B10871288884F800618867 /* DogsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsListViewController.swift; sourceTree = "<group>"; };
+		B3D3A44A288E675600A08FB3 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		B3D3A44C288ECD3000A08FB3 /* DogObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogObject.swift; sourceTree = "<group>"; };
+		B3D3A44E288ED55800A08FB3 /* JSONDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataManager.swift; sourceTree = "<group>"; };
+		B3D3A450288ED8C000A08FB3 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		B3FD84502887B9FF00173F55 /* DogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DogDetailsViewModel.swift; path = ViewModel/DogDetailsViewModel.swift; sourceTree = "<group>"; };
 		BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsListTableViewCell.swift; sourceTree = "<group>"; };
 		BED94A4528897439008EB7A4 /* DogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListViewModel.swift; sourceTree = "<group>"; };
@@ -84,6 +92,9 @@
 				BEE850EC288C28000057FD61 /* Loader */,
 				BEE850E1288BDAA70057FD61 /* CoreData */,
 				95997A09288BCF6800F1B462 /* DatabaseService.swift */,
+				B3D3A44A288E675600A08FB3 /* RealmDataManager.swift */,
+				B3D3A44C288ECD3000A08FB3 /* DogObject.swift */,
+				B3D3A44E288ED55800A08FB3 /* JSONDataManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 				B39F3C192886D1B200A4D768 /* Model */,
 				95D0B08A28848E0D0028E44D /* AppDelegate.swift */,
 				B3A266EA2889588C00821FAD /* Settings.swift */,
+				B3D3A450288ED8C000A08FB3 /* Optional.swift */,
 				BEE850EF288C5A980057FD61 /* dogs.json */,
 				95D0B08C28848E0D0028E44D /* SceneDelegate.swift */,
 				95D0B09628848E120028E44D /* Assets.xcassets */,
@@ -294,12 +306,14 @@
 				95997A0A288BCF6800F1B462 /* DatabaseService.swift in Sources */,
 				B30E408628854AB900FD284A /* ProfileViewController.swift in Sources */,
 				95D0B08F28848E0D0028E44D /* DogDetailsViewController.swift in Sources */,
+				B3D3A451288ED8C000A08FB3 /* Optional.swift in Sources */,
 				BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */,
 				B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */,
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
 				BEE850EB288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift in Sources */,
 				BEE850E3288BDACE0057FD61 /* CoreDataManager.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
+				B3D3A44B288E675600A08FB3 /* RealmDataManager.swift in Sources */,
 				B39F3C272887193F00A4D768 /* Dog.swift in Sources */,
 				BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */,
 				BEE850F2288D3BB80057FD61 /* AddDogViewController.swift in Sources */,
@@ -309,9 +323,11 @@
 				B39F3C1D2887084400A4D768 /* DescriptionDogCollectionViewCell.swift in Sources */,
 				B3A266EB2889588C00821FAD /* Settings.swift in Sources */,
 				B3A266F2288958DD00821FAD /* MockNetworkConfiguration.swift in Sources */,
+				B3D3A44D288ECD3000A08FB3 /* DogObject.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
 				BEE850EA288C1AC10057FD61 /* DogEntry+CoreDataClass.swift in Sources */,
 				B3A266EE288958AA00821FAD /* NetworkConfiguration.swift in Sources */,
+				B3D3A44F288ED55800A08FB3 /* JSONDataManager.swift in Sources */,
 				BEE850EE288C282C0057FD61 /* JSONLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
