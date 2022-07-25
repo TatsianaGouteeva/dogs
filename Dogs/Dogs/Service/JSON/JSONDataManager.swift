@@ -9,13 +9,6 @@ import Foundation
 
 final class JSONDataManager {
     static func fetchDataFromJSON() -> [Dog] {
-
-        var dogs: [Dog] = []
-        do {
-            dogs = JSONLoader.shared.load(from: "dogs")!
-        } catch let error as NSError {
-            print("Error fetching: \(error), \(error.userInfo)")
-        }
-        return dogs
+        JSONLoader.shared.load(from: "dogs").orEmpty
     }
 }
