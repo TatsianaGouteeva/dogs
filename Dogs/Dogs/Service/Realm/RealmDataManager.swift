@@ -31,7 +31,7 @@ final class RealmDataManager: DatabaseServiceProtocol {
     }
     
     func fetchDataFromJSON() -> [Dog] {
-        JSONDataManager.fetchDataFromJSON()
+        JSONLoader.shared.load(from: "dogs").orEmpty
     }
     
     func saveData(dog: Dog) {
