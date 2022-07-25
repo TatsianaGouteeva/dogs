@@ -12,5 +12,9 @@ final class DogsListTableViewCell: UITableViewCell {
     static let reuseIdentifier = "DogsListTableViewCellIdentifier"
 
     @IBOutlet private weak var dogImageView: UIImageView!
-    @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet private weak var breedLabel: UILabel!
+    
+    func configure(with model: ListItem) {
+        breedLabel = model.breed
+    }
 }

@@ -10,18 +10,16 @@ import UIKit
 final class DogsListViewController: UIViewController {
 
     private typealias DataSource = UITableViewDiffableDataSource<ListSection, ListItem>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>
     private lazy var dataSource: DataSource = makeDataSource()
-    private var viewModel: DogsListViewModel = DogsListViewModel()
+    private let viewModel: DogsListViewModel = DogsListViewModel()
 
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var createDog: UIBarButtonItem!
+    @IBOutlet private weak var createDog: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViewModel()
-       // viewModel.applyData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +46,7 @@ final class DogsListViewController: UIViewController {
 
 private extension DogsListViewController {
 
-    private func setupViewModel() {
+    func setupViewModel() {
         viewModel.snapshot = { [weak self] snapshot in
             self?.dataSource.apply(snapshot)
         }
@@ -59,20 +57,22 @@ private extension DogsListViewController {
 
 private extension DogsListViewController {
 
-    private func makeDataSource() -> DataSource {
-
+    func makeDataSource() -> DataSource {
         let dataSource = UITableViewDiffableDataSource<ListSection, ListItem>(tableView: tableView) {
             (tableView: UITableView, indexPath: IndexPath, item: ListItem) -> UITableViewCell? in
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: DogsListTableViewCell.reuseIdentifier,
                 for: indexPath) as! DogsListTableViewCell
-            cell.breedLabel.text = item.breed
+            cell.configure(with: item)
+            
             return cell
         }
+        
         return dataSource
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension DogsListViewController: UITableViewDelegate {
 
@@ -80,13 +80,3 @@ extension DogsListViewController: UITableViewDelegate {
         self.viewModel.cellSelected(for: indexPath.row)
     }
 }
-
-enum ListSection: CaseIterable {
-    case list
-}
-
-struct ListItem: Hashable {
-    var imageName: String
-    var breed: String
-}
-

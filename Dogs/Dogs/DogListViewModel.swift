@@ -9,24 +9,21 @@ import UIKit
 
 final class DogsListViewModel {
 
-    var dogs: [Dog] = [Dog]()
-    var list: [ListItem] = [ListItem]()
-    var didSelectDog: ((Dog) -> Void)?
     typealias Snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>
-    private var databaseService = DatabaseService()
-
+    
+    private let databaseService = DatabaseService()
+    private var dogs: [Dog] = [Dog]()
+    
+    var didSelectDog: ((Dog) -> Void)?
+    var snapshot: ((Snapshot) -> ())?
+    
     // MARK: - Fetch data from Database
 
     func updateData () {
         dogs = databaseService.fetchData()
-        list = dogs.map { dog in
-            ListItem(imageName: "dog", breed: dog.breed)
-        }
     }
 
     // MARK: - Data source
-
-    var snapshot: ((Snapshot) -> ())?
 
     func applyData() {
         snapshot?(fillDogsList())
@@ -37,6 +34,8 @@ final class DogsListViewModel {
     }
 
     private func fillDogsList() -> Snapshot {
+        let list = dogs.map { ListItem(imageName: $0.images?.first.orEmpty, breed: $0.breed) }
+        
         var snapshot = Snapshot()
         snapshot.appendSections([.list])
         snapshot.appendItems(list, toSection: .list)
