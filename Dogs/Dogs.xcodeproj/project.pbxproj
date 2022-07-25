@@ -88,13 +88,13 @@
 		95997A08288BCF3400F1B462 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B3D3A453288ED9EC00A08FB3 /* JSON */,
+				B3D3A452288ED9D700A08FB3 /* Realm */,
 				BEE85108288D5C760057FD61 /* Firebase */,
 				BEE850EC288C28000057FD61 /* Loader */,
 				BEE850E1288BDAA70057FD61 /* CoreData */,
 				95997A09288BCF6800F1B462 /* DatabaseService.swift */,
-				B3D3A44A288E675600A08FB3 /* RealmDataManager.swift */,
-				B3D3A44C288ECD3000A08FB3 /* DogObject.swift */,
-				B3D3A44E288ED55800A08FB3 /* JSONDataManager.swift */,
+				B3A266EA2889588C00821FAD /* Settings.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -118,14 +118,13 @@
 		95D0B08928848E0D0028E44D /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
+				B3D3A455288EDA0300A08FB3 /* Extensions */,
 				95997A08288BCF3400F1B462 /* Service */,
 				B3A266EC2889589C00821FAD /* Network */,
 				B3FD844F2887B9E400173F55 /* ViewModel */,
 				B39F3C202887149300A4D768 /* View */,
 				B39F3C192886D1B200A4D768 /* Model */,
 				95D0B08A28848E0D0028E44D /* AppDelegate.swift */,
-				B3A266EA2889588C00821FAD /* Settings.swift */,
-				B3D3A450288ED8C000A08FB3 /* Optional.swift */,
 				BEE850EF288C5A980057FD61 /* dogs.json */,
 				95D0B08C28848E0D0028E44D /* SceneDelegate.swift */,
 				95D0B09628848E120028E44D /* Assets.xcassets */,
