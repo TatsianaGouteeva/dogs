@@ -5,6 +5,8 @@
 //  Created by Tatsiana Gouteeva on 19.07.22.
 //
 
+import RealmSwift
+
 struct Dog: Decodable {
     let breed: String
     let height: Double?
@@ -19,6 +21,20 @@ struct Dog: Decodable {
                 "description" : description ?? ""]
     }
 }
+
+// MARK: Mapping
+
+extension Dog {
+    
+    init(from model: DogObject) {
+        self.init(breed: model.breed,
+                  height: model.height,
+                  weight: model.weight,
+                  description: model.dogDescription,
+                  images: model.images)
+    }
+}
+
 
 extension Double {
     
