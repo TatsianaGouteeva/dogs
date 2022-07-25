@@ -19,7 +19,7 @@ final class DogsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupViewModel()
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +46,11 @@ final class DogsListViewController: UIViewController {
 
 private extension DogsListViewController {
 
-    func setupViewModel() {
+    func bindViewModel() {
+        viewModel.snapshot = { [weak self] snapshot in
+            self?.dataSource.apply(snapshot)
+        }
+        
         viewModel.snapshot = { [weak self] snapshot in
             self?.dataSource.apply(snapshot)
         }
