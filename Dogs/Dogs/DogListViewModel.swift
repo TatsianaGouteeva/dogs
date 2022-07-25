@@ -18,8 +18,7 @@ final class DogsListViewModel {
     // MARK: - Fetch data from Database
 
     func updateData () {
-        guard let updatedData = databaseService.updateDataIfNeeded() else { return }
-        dogs = updatedData
+        dogs = databaseService.fetchData()
         list = dogs.map { dog in
             ListItem(imageName: "dog", breed: dog.breed)
         }
