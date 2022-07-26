@@ -14,7 +14,7 @@ extension DogEntry {
         return NSFetchRequest<DogEntry>(entityName: "DogEntry")
     }
 
-    @NSManaged public var breed: String?
+    @NSManaged public var breed: String
     @NSManaged public var weight: Double
     @NSManaged public var height: Double
     @NSManaged public var images: [String]?

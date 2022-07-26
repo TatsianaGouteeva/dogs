@@ -15,7 +15,6 @@ final class AddDogViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         //
         //databaseService.saveData(dog: Dog(breed: "1232", height: 12, weight: 22, description: "wee", images: []))
     }
