@@ -10,8 +10,7 @@ import Foundation
 typealias FetchResult = Result<[Dog], Error>
 
 protocol DatabaseServiceProtocol {
-    var isEmpty: Bool { get }
-    //func fetchData() -> [Dog]
+    func checkemptyDatabase(completion: @escaping(Bool) -> Void)
     func fetchDataFromBase(completion: @escaping(FetchResult) -> Void)
     func fetchDataFromJSON() -> [Dog]
     func fetchData(completion: @escaping(FetchResult) -> Void)
@@ -29,13 +28,4 @@ final class DatabaseService {
     func saveData(dog: Dog) {
         service.saveData(dog: dog)
     }
-
-//    func fetchDataFromJSON(from file: String) -> [Dog] {
-//        return [Dog]()
-//        //service?.fetchDataFromJSON(from: file) ?? [Dog]()
-//    }
-
-//    func updateDataIfNeeded(completion: @escaping(FetchResult) -> Void) {
-//        fetchData(completion: completion)
-//    }
 }

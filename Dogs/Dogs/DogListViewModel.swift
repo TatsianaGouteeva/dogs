@@ -20,20 +20,13 @@ final class DogsListViewModel {
     // MARK: - Fetch data from Database
 
     func updateData() {
-
         databaseService.fetchData { [ weak self ] fetchResult in
             guard let weakSelf = self else { return }
             switch fetchResult {
             case .success(let dogs):
                 weakSelf.dogs = dogs
-//                weakSelf.list = weakSelf.dogs
-//                    .map { dog in
-//                        ListItem(imageName: "dog", breed: dog.breed)
-//                    }
                 weakSelf.applyData()
-                print()
             case .failure(let error):
-                print("EROOOOOOR")
                 print(error.localizedDescription)
             }
         }

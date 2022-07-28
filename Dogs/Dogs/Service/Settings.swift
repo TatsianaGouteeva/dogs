@@ -75,8 +75,7 @@ private extension Settings {
         case .coredata:
             return CoreDataManager(modelName: "Dogs")
         case .realm:
-            return FirebaseManager()
-            //RealmDataManager()
+            return RealmDataManager()
         case .firebase:
             return FirebaseManager()
         }
