@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataStack: DatabaseServiceProtocol {
+final class CoreDataManager: DatabaseServiceProtocol {
 
     private let modelName: String
 
@@ -18,7 +18,6 @@ class CoreDataStack: DatabaseServiceProtocol {
 
     lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -26,102 +25,63 @@ class CoreDataStack: DatabaseServiceProtocol {
         }
         return container
     }()
-    var isEmpty: Bool {
-        do {
-            let count = try managedContext.count(for: DogEntry.fetchRequest())
-            return count == 0
-        } catch {
-            return true
-        }
-    }
-
-    func fetchDataFromBase() -> [Dog] {
-
-        var dogs: [Dog] = []
-        do {
-            dogs = try managedContext.fetch(DogEntry.fetchRequest())
-                .map { dogEntry in
-                    return Dog(breed: dogEntry.breed ?? "",
-                               height: dogEntry.height,
-                               weight: dogEntry.weight,
-                               description: dogEntry.description,
-                               images: dogEntry.images)
-
-                }
-        } catch let error as NSError {
-            print("Error: \(error.localizedDescription)")
-        }
-        return dogs
-    }
-
-    func fetchData() -> [Dog] {
-        var dogs: [Dog] = []
-        if isEmpty {
-            dogs = JSONDataManager.fetchDataFromJSON()
-        } else {
-            dogs = fetchDataFromBase()
-        }
-        return dogs
-    }
-
-    func saveData(dog: Dog) {
-        do {
-            let dogModelEntity = NSEntityDescription.entity(forEntityName: "DogEntry", in: managedContext)!
-            let dogEntity = DogEntry(entity: dogModelEntity, insertInto: managedContext)
-            dogEntity.breed = dog.breed
-            dogEntity.height = dog.height ?? 0.0
-            dogEntity.weight = dog.weight ?? 0.0
-            dogEntity.images = dog.images
-            saveContext()
-        } catch let error as NSError {
-            print("")
-        }
-    }
-
-    func fetchDataFromJSON() -> [Dog] {
-
-        var dogs: [Dog] = []
-        do {
-            dogs = JSONLoader.shared.load(from: "dogs")!
-            let dogModelEntity = NSEntityDescription.entity(forEntityName: "DogEntry", in: managedContext)!
-            for dogElement in dogs {
-                let dogEntity = DogEntry(entity: dogModelEntity, insertInto: managedContext)
-                dogEntity.breed = dogElement.breed
-                dogEntity.height = dogElement.height ?? 0.0
-                dogEntity.weight = dogElement.weight ?? 0.0
-                dogEntity.images = dogElement.images
-            }
-            saveContext()
-        } catch let error as NSError {
-            print("Error fetching: \(error), \(error.userInfo)")
-        }
-        return dogs
-    }
-
-    func clearDatabase() {
-        do {
-            let results = try managedContext.fetch(DogEntry.fetchRequest())
-            results.forEach({ managedContext.delete($0) })
-            saveContext()
-        } catch {
-            print()
-        }
-    }
-
+    
     // MARK: Initializers
+    
     init(modelName: String) {
         self.modelName = modelName
     }
+    
+    //MARK: - Protocol implementation
+    
+    func fetchDataFromJSON() -> [Dog] {
+        var dogs: [Dog] = [Dog]()
+        dogs = JSONLoader.shared.load(from: "dogs")!
+        dogs.forEach {
+            saveData(dog: $0)
+        }
+        return dogs
+    }
+    
+    func fetchData(completion: @escaping(FetchResult) -> Void) {
+
+        var dogs: [Dog] = []
+        do {
+            let fetchedDogs = try managedContext.fetch(DogEntity.fetchRequest())
+            if fetchedDogs.isEmpty {
+                dogs = fetchDataFromJSON()
+            } else {
+                dogs = fetchedDogs.map { dogEntity in
+                    return Dog(from: dogEntity)
+                }
+            }
+            completion(.success(dogs.sorted(by: { $0.breed < $1.breed })))
+        } catch let error {
+            return completion(.failure(error))
+        }
+    }
+    
+    func saveData(dog: Dog) {
+        let dogModelEntity = NSEntityDescription.entity(forEntityName: "DogEntity", in: managedContext)!
+        let dogEntity = DogEntity(entity: dogModelEntity, insertInto: managedContext)
+        dogEntity.breed = dog.breed
+        dogEntity.height = dog.height.orZero
+        dogEntity.weight = dog.weight.orZero
+        dogEntity.images = dog.images
+        saveContext()
+    }
 }
 
-extension CoreDataStack {
+extension CoreDataManager {
     
-    func saveContext () {
+    func saveContext() {
         guard managedContext.hasChanges else { return }
         do {
             try managedContext.save()
-        } catch let nserror as NSError {
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
 }

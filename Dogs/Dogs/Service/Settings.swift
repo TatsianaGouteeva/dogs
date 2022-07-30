@@ -24,7 +24,7 @@ final class Settings {
     private init() {
         activeNetworkConfiguration = MockNetworkConfiguration()
         activeConcurrencyConfiguration = ConcurrencyConfigurationType.gcd
-        activeDatabaseConfiguration = CoreDataStack(modelName: "Dogs")
+        activeDatabaseConfiguration = CoreDataManager(modelName: "Dogs")
         
         if let configuration = UserDefaults.standard.string(forKey:
             Keys.activeNetworkConfiguration),
@@ -73,11 +73,11 @@ private extension Settings {
     func databaseConfiguration(of type: DatabaseConfigurationType) -> DatabaseServiceProtocol {
         switch type {
         case .coredata:
-            return CoreDataStack(modelName: "Dogs")
+            return CoreDataManager(modelName: "Dogs")
         case .realm:
             return RealmDataManager()
         case .firebase:
-            return RealmDataManager()
+            return FirebaseManager()
         }
     }
 }

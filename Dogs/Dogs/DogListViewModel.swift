@@ -19,8 +19,17 @@ final class DogsListViewModel {
     
     // MARK: - Fetch data from Database
 
-    func updateData () {
-        dogs = databaseService.fetchData()
+    func updateData() {
+        databaseService.fetchData { [ weak self ] fetchResult in
+            guard let weakSelf = self else { return }
+            switch fetchResult {
+            case .success(let dogs):
+                weakSelf.dogs = dogs
+                weakSelf.applyData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Data source

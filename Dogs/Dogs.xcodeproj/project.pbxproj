@@ -33,11 +33,14 @@
 		BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */; };
 		BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED94A4528897439008EB7A4 /* DogListViewModel.swift */; };
 		BEE850E3288BDACE0057FD61 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */; };
-		BEE850EA288C1AC10057FD61 /* DogEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */; };
-		BEE850EB288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */; };
+		BEE850EA288C1AC10057FD61 /* DogEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */; };
+		BEE850EB288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */; };
 		BEE850EE288C282C0057FD61 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850ED288C282C0057FD61 /* JSONLoader.swift */; };
 		BEE850F0288C5A980057FD61 /* dogs.json in Resources */ = {isa = PBXBuildFile; fileRef = BEE850EF288C5A980057FD61 /* dogs.json */; };
 		BEE850F2288D3BB80057FD61 /* AddDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850F1288D3BB80057FD61 /* AddDogViewController.swift */; };
+		BEE8510A288D60DA0057FD61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEE85109288D60DA0057FD61 /* GoogleService-Info.plist */; };
+		BEE8510C288D60FF0057FD61 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8510B288D60FF0057FD61 /* FirebaseManager.swift */; };
+		BEE8511C288D63DD0057FD61 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BEE8511B288D63DD0057FD61 /* FirebaseDatabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +72,13 @@
 		BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsListTableViewCell.swift; sourceTree = "<group>"; };
 		BED94A4528897439008EB7A4 /* DogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListViewModel.swift; sourceTree = "<group>"; };
 		BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntry+CoreDataClass.swift"; path = "Model/DogEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntry+CoreDataProperties.swift"; path = "Model/DogEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntity+CoreDataClass.swift"; path = "Model/DogEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntity+CoreDataProperties.swift"; path = "Model/DogEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BEE850ED288C282C0057FD61 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		BEE850EF288C5A980057FD61 /* dogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dogs.json; path = ../../dogs.json; sourceTree = "<group>"; };
 		BEE850F1288D3BB80057FD61 /* AddDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewController.swift; sourceTree = "<group>"; };
+		BEE85109288D60DA0057FD61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEE8510B288D60FF0057FD61 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE8511C288D63DD0057FD61 /* FirebaseDatabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +237,8 @@
 		BEE850E1288BDAA70057FD61 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */,
-				BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */,
+				BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */,
+				BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */,
 				95D0B09328848E0D0028E44D /* Dogs.xcdatamodeld */,
 				BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */,
 			);
@@ -250,6 +256,8 @@
 		BEE85108288D5C760057FD61 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				BEE85109288D60DA0057FD61 /* GoogleService-Info.plist */,
+				BEE8510B288D60FF0057FD61 /* FirebaseManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 			);
 			name = Dogs;
 			packageProductDependencies = (
+				BEE8511B288D63DD0057FD61 /* FirebaseDatabase */,
 			);
 			productName = Dogs;
 			productReference = 95D0B08728848E0D0028E44D /* Dogs.app */;
@@ -301,6 +310,7 @@
 			);
 			mainGroup = 95D0B07E28848E0D0028E44D;
 			packageReferences = (
+				BEE8511A288D63DD0057FD61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 95D0B08828848E0D0028E44D /* Products */;
 			projectDirPath = "";
@@ -318,6 +328,7 @@
 			files = (
 				95D0B09A28848E120028E44D /* LaunchScreen.storyboard in Resources */,
 				95D0B09728848E120028E44D /* Assets.xcassets in Resources */,
+				BEE8510A288D60DA0057FD61 /* GoogleService-Info.plist in Resources */,
 				BEE850F0288C5A980057FD61 /* dogs.json in Resources */,
 				95D0B09228848E0D0028E44D /* Main.storyboard in Resources */,
 			);
@@ -337,7 +348,7 @@
 				BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */,
 				B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */,
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
-				BEE850EB288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift in Sources */,
+				BEE850EB288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift in Sources */,
 				BEE850E3288BDACE0057FD61 /* CoreDataManager.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B3D3A44B288E675600A08FB3 /* RealmDataManager.swift in Sources */,
@@ -353,7 +364,8 @@
 				B3D3A44D288ECD3000A08FB3 /* DogObject.swift in Sources */,
 				B3D3A457288EE93F00A08FB3 /* ListItem.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
-				BEE850EA288C1AC10057FD61 /* DogEntry+CoreDataClass.swift in Sources */,
+				BEE850EA288C1AC10057FD61 /* DogEntity+CoreDataClass.swift in Sources */,
+				BEE8510C288D60FF0057FD61 /* FirebaseManager.swift in Sources */,
 				B3A266EE288958AA00821FAD /* NetworkConfiguration.swift in Sources */,
 				B3D3A44F288ED55800A08FB3 /* JSONDataManager.swift in Sources */,
 				BEE850EE288C282C0057FD61 /* JSONLoader.swift in Sources */,
@@ -432,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -486,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -503,7 +515,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C743GYZ9KR;
+				DEVELOPMENT_TEAM = 3H7FBGEANL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dogs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -511,6 +523,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,7 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C743GYZ9KR;
+				DEVELOPMENT_TEAM = 3H7FBGEANL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dogs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -539,6 +552,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,6 +588,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BEE8511A288D63DD0057FD61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BEE8511B288D63DD0057FD61 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEE8511A288D63DD0057FD61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		95D0B09328848E0D0028E44D /* Dogs.xcdatamodeld */ = {

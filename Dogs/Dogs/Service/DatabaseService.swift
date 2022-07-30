@@ -7,21 +7,20 @@
 
 import Foundation
 
+typealias FetchResult = Result<[Dog], Error>
+
 protocol DatabaseServiceProtocol {
-    var isEmpty: Bool { get }
-    
-    func fetchData() -> [Dog]
-    func fetchDataFromBase() -> [Dog]
     func fetchDataFromJSON() -> [Dog]
+    func fetchData(completion: @escaping(FetchResult) -> Void)
     func saveData(dog: Dog)
 }
 
 final class DatabaseService {
 
     private let service: DatabaseServiceProtocol = Settings.shared.activeDatabaseConfiguration
- 
-    func fetchData() -> [Dog] {
-        service.fetchData()
+
+    func fetchData(completion: @escaping(FetchResult) -> Void) {
+         service.fetchData(completion: completion)
     }
         
     func saveData(dog: Dog) {

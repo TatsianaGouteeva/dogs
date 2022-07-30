@@ -36,10 +36,6 @@ final class DogsListViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func changeDatabaseService(_ sender: Any) {
-        Settings.shared.activateDatabaseConfiguration(of: .firebase)
-    }
 }
 
 // MARK: - Binding
