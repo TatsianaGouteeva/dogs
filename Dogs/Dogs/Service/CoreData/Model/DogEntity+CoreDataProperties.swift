@@ -1,5 +1,5 @@
 //
-//  DogEntry+CoreDataProperties.swift
+//  DogEntity+CoreDataProperties.swift
 //  Dogs
 //
 //  Created by Inna Markevich on 23.07.22.
@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 
-extension DogEntry {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<DogEntry> {
-        return NSFetchRequest<DogEntry>(entityName: "DogEntry")
+extension DogEntity {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<DogEntity> {
+        return NSFetchRequest<DogEntity>(entityName: "DogEntity")
     }
 
     @NSManaged public var breed: String
@@ -21,6 +21,6 @@ extension DogEntry {
 
 }
 
-extension DogEntry : Identifiable {
+extension DogEntity : Identifiable {
 
 }

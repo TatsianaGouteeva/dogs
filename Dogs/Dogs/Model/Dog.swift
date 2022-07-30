@@ -34,7 +34,7 @@ extension Dog {
 //                  images: model.images)
 //    }
 
-    init(from model: DogEntry) {
+    init(from model: DogEntity) {
         self.init(breed: model.breed,
                   height: model.height,
                   weight: model.weight,

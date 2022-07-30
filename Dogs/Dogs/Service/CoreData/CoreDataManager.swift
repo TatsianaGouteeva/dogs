@@ -11,6 +11,7 @@ import CoreData
 final class CoreDataManager: DatabaseServiceProtocol {
 
     private let modelName: String
+
     lazy var managedContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
     }()
@@ -33,29 +34,6 @@ final class CoreDataManager: DatabaseServiceProtocol {
     
     //MARK: - Protocol implementation
     
-    func checkemptyDatabase(completion: @escaping(Bool) -> Void) {
-        do {
-            let count = try managedContext.count(for: DogEntry.fetchRequest())
-            return completion(count == 0)
-        } catch {
-            return completion(true)
-        }
-    }
-    
-    func fetchDataFromBase(completion: (FetchResult) -> Void) {
-        var dogs: [Dog] = []
-        do {
-            dogs = try managedContext.fetch(DogEntry.fetchRequest())
-                .map { dogEntry in
-                    return Dog(from: dogEntry)
-                }
-            completion(.success(dogs))
-        } catch let error {
-            return completion(.failure(error))
-        }
-    }
-
-    
     func fetchDataFromJSON() -> [Dog] {
         var dogs: [Dog] = [Dog]()
         dogs = JSONLoader.shared.load(from: "dogs")!
@@ -66,29 +44,26 @@ final class CoreDataManager: DatabaseServiceProtocol {
     }
     
     func fetchData(completion: @escaping(FetchResult) -> Void) {
-        checkemptyDatabase { [weak self] isEmpty in
-            guard let weakSelf = self else {
-                completion(.failure(DataError.unknown))
-                return
-            }
-            if isEmpty {
-                completion(.success(weakSelf.fetchDataFromJSON()))
+
+        var dogs: [Dog] = []
+        do {
+            let fetchedDogs = try managedContext.fetch(DogEntity.fetchRequest())
+            if fetchedDogs.isEmpty {
+                dogs = fetchDataFromJSON()
             } else {
-                weakSelf.fetchDataFromBase { result in
-                    switch result {
-                    case .success(let dogs):
-                        completion(.success(dogs.sorted(by: { $0.breed < $1.breed })))
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
+                dogs = fetchedDogs.map { dogEntity in
+                    return Dog(from: dogEntity)
                 }
             }
+            completion(.success(dogs.sorted(by: { $0.breed < $1.breed })))
+        } catch let error {
+            return completion(.failure(error))
         }
     }
     
     func saveData(dog: Dog) {
-        let dogModelEntity = NSEntityDescription.entity(forEntityName: "DogEntry", in: managedContext)!
-        let dogEntity = DogEntry(entity: dogModelEntity, insertInto: managedContext)
+        let dogModelEntity = NSEntityDescription.entity(forEntityName: "DogEntity", in: managedContext)!
+        let dogEntity = DogEntity(entity: dogModelEntity, insertInto: managedContext)
         dogEntity.breed = dog.breed
         dogEntity.height = dog.height.orZero
         dogEntity.weight = dog.weight.orZero

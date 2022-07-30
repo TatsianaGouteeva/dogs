@@ -33,8 +33,8 @@
 		BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */; };
 		BED94A4628897439008EB7A4 /* DogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED94A4528897439008EB7A4 /* DogListViewModel.swift */; };
 		BEE850E3288BDACE0057FD61 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */; };
-		BEE850EA288C1AC10057FD61 /* DogEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */; };
-		BEE850EB288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */; };
+		BEE850EA288C1AC10057FD61 /* DogEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */; };
+		BEE850EB288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */; };
 		BEE850EE288C282C0057FD61 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850ED288C282C0057FD61 /* JSONLoader.swift */; };
 		BEE850F0288C5A980057FD61 /* dogs.json in Resources */ = {isa = PBXBuildFile; fileRef = BEE850EF288C5A980057FD61 /* dogs.json */; };
 		BEE850F2288D3BB80057FD61 /* AddDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE850F1288D3BB80057FD61 /* AddDogViewController.swift */; };
@@ -72,8 +72,8 @@
 		BE2F69DF28897F0200580B5F /* DogsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsListTableViewCell.swift; sourceTree = "<group>"; };
 		BED94A4528897439008EB7A4 /* DogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListViewModel.swift; sourceTree = "<group>"; };
 		BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntry+CoreDataClass.swift"; path = "Model/DogEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntry+CoreDataProperties.swift"; path = "Model/DogEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntity+CoreDataClass.swift"; path = "Model/DogEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DogEntity+CoreDataProperties.swift"; path = "Model/DogEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BEE850ED288C282C0057FD61 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		BEE850EF288C5A980057FD61 /* dogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dogs.json; path = ../../dogs.json; sourceTree = "<group>"; };
 		BEE850F1288D3BB80057FD61 /* AddDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewController.swift; sourceTree = "<group>"; };
@@ -237,8 +237,8 @@
 		BEE850E1288BDAA70057FD61 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BEE850E8288C1AC10057FD61 /* DogEntry+CoreDataClass.swift */,
-				BEE850E9288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift */,
+				BEE850E8288C1AC10057FD61 /* DogEntity+CoreDataClass.swift */,
+				BEE850E9288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift */,
 				95D0B09328848E0D0028E44D /* Dogs.xcdatamodeld */,
 				BEE850E2288BDACE0057FD61 /* CoreDataManager.swift */,
 			);
@@ -348,7 +348,7 @@
 				BE2F69E128897F0200580B5F /* DogsListTableViewCell.swift in Sources */,
 				B3A266F0288958C300821FAD /* ConfigurationType.swift in Sources */,
 				B39F3C1B2886D3C000A4D768 /* ImageDogCollectionViewCell.swift in Sources */,
-				BEE850EB288C1AC10057FD61 /* DogEntry+CoreDataProperties.swift in Sources */,
+				BEE850EB288C1AC10057FD61 /* DogEntity+CoreDataProperties.swift in Sources */,
 				BEE850E3288BDACE0057FD61 /* CoreDataManager.swift in Sources */,
 				95D0B08B28848E0D0028E44D /* AppDelegate.swift in Sources */,
 				B3D3A44B288E675600A08FB3 /* RealmDataManager.swift in Sources */,
@@ -364,7 +364,7 @@
 				B3D3A44D288ECD3000A08FB3 /* DogObject.swift in Sources */,
 				B3D3A457288EE93F00A08FB3 /* ListItem.swift in Sources */,
 				95D0B08D28848E0D0028E44D /* SceneDelegate.swift in Sources */,
-				BEE850EA288C1AC10057FD61 /* DogEntry+CoreDataClass.swift in Sources */,
+				BEE850EA288C1AC10057FD61 /* DogEntity+CoreDataClass.swift in Sources */,
 				BEE8510C288D60FF0057FD61 /* FirebaseManager.swift in Sources */,
 				B3A266EE288958AA00821FAD /* NetworkConfiguration.swift in Sources */,
 				B3D3A44F288ED55800A08FB3 /* JSONDataManager.swift in Sources */,

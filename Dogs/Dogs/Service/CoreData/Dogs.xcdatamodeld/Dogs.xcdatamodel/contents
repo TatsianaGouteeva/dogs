@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="DogEntry" representedClassName="DogEntry" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DogEntity" representedClassName="DogEntity" syncable="YES">
         <attribute name="breed" attributeType="String"/>
         <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="images" optional="YES" attributeType="Transformable" customClassName="[String]"/>
@@ -10,6 +10,6 @@
         </fetchIndex>
     </entity>
     <elements>
-        <element name="DogEntry" positionX="-54" positionY="-9" width="128" height="89"/>
+        <element name="DogEntity" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
